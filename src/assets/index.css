@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #ebebeb;
+    --button: #212121;
+    --button-disabled: #a5a5a5;
+    --primary: #000000;
+    --secondary: #878787;
+    --accent: #da6319;
+    --accent-muted: #fff0ed;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --ring: 216 12.2% 83.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #1a1a1a;
+    --foreground: #ffffff;
+    --button: #ffffff;
+    --button-disabled: #666666;
+    --primary: #ffffff;
+    --secondary: #b3b3b3;
+    --accent: #ff6b35;
+    --accent-muted: #2a1f1a;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --ring: 216 12.2% 83.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-primary text-sm md:text-[16px] leading-loose;
+  }
+  h1 {
+    @apply text-[56px] text-primary font-bold tracking-[1.5px];
+  }
+  h2 {
+    @apply text-[48px] text-primary font-medium tracking-[1.5px];
+  }
+  h3 {
+    @apply text-[40px] text-primary font-medium tracking-[1.5px] leading-loose;
+  }
+  h4 {
+    @apply text-[32px] text-primary font-medium tracking-[1.5px];
+  }
+  h5 {
+    @apply text-[24px] text-primary font-medium tracking-[1.5px];
+  }
+  h5 {
+    @apply text-[20px] font-medium tracking-[1.5px];
+  }
+
+  .section__wrapper {
+    @apply py-6 md:py-8 px-4 md:px-0 space-y-6 container mx-auto;
+  }
+
+  .header__wrapper {
+    @apply flex items-center justify-between container mx-auto px-4 md:px-0;
+  }
+
+  .image__wrapper {
+    @apply w-full flex items-center justify-center overflow-hidden;
+  }
+  .recipe__right__side {
+    @apply col-span-10 md:col-span-6;
+  }
+
+  .recipe__left__side {
+    @apply hidden md:flex col-span-4 space-x-6  pl-[100px];
+  }
+
+  .image__animate {
+    @apply hover:scale-110 duration-300 transition-all;
+  }
+
+  .animate__loading {
+    @apply rounded-md bg-slate-200 animate-pulse;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Custom Button Styles */
+.btn-hover-effect {
+  @apply transform transition-all duration-300 hover:scale-105;
+}
+
+.btn-shadow-effect {
+  @apply shadow-lg hover:shadow-xl transition-shadow duration-300;
+}
+
+/* Food Theme Colors */
+@layer components {
+  .food-primary {
+    @apply bg-accent text-white transition-colors duration-200;
+  }
+  .food-primary:hover {
+    @apply bg-[#c55a16];
+  }
+
+  .food-secondary {
+    @apply bg-accent-muted text-accent transition-colors duration-200;
+  }
+  .food-secondary:hover {
+    @apply bg-[#ffe4d9];
+  }
+
+  .food-accent {
+    @apply bg-[#e67a2a] text-white transition-colors duration-200;
+  }
+  .food-accent:hover {
+    @apply bg-accent;
+  }
+}
+
+/* Glass Effect */
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-sm border border-white/20;
+}
+
+/* Gradient Text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-muted;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#c55a16];
+}
